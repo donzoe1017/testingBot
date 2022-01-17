@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-gnr3a+m9zefz4pi5hwojrn*v&8hr8@bdw^u=7inlhkjl0j23jt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['7cce-59-125-27-110.ngrok.io']
-ALLOWED_HOSTS = ['game-in-line-webpage.herokuapp.com']
+ALLOWED_HOSTS = ['f0a0-118-163-176-235.ngrok.io']
+#ALLOWED_HOSTS = ['game-in-line-webpage.herokuapp.com']
 
 #LINE_ACCESS_TOKEN
 LINE_CHANNEL_ACCESS_TOKEN = 'c+zxxPnYV2LhC5nPazqSAgijtfrfTILEcXLP7ug49RUGm3JW78YrLFcLKxJfpEU1juSZAbgzu2sLo5+/VqFt7k2f8oJOHpddtmAmkvVgBMA2x3YodM/AMcXZlinUKP2PdMHxrLicxRnVFnHOPu3IyQdB04t89/1O/w1cDnyilFU='
