@@ -93,6 +93,7 @@ DATABASES = {
 DATABASES = {
         'default': {
             'ENGINE': 'djongo',
+            'ENFORCE_SCHEMA': True,
             'NAME': 'linebot',
             'ENFORCE_SCHEMA': False,
             'CLIENT': {
