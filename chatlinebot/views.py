@@ -6,7 +6,20 @@ from django.conf import settings
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
- 
+
+'''
+#import pymongo
+from pymongo import MongoClient
+def get_db_handle(db_name, host, port, username, password):
+
+ client = MongoClient(host=mongodb+srv://donzoe1017:cxz99856@cluster0.t5qzo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority,
+                      port=int(port),
+                      username=donzoe1017,
+                      password=cxz99856
+                     )
+ db_handle = client['linebot']
+ return db_handle, client
+'''
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
  

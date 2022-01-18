@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-gnr3a+m9zefz4pi5hwojrn*v&8hr8@bdw^u=7inlhkjl0j23jt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['f0a0-118-163-176-235.ngrok.io']
+#ALLOWED_HOSTS = ['603a-59-125-27-110.ngrok.io']
 ALLOWED_HOSTS = ['game-in-line-webpage.herokuapp.com']
 
 #LINE_ACCESS_TOKEN
@@ -90,6 +91,7 @@ DATABASES = {
     }
 }
 '''
+'''
 DATABASES = {
         'default': {
             'ENGINE': 'djongo',
@@ -101,7 +103,7 @@ DATABASES = {
             }  
         }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
