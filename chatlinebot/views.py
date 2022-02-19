@@ -78,14 +78,16 @@ def callback(request):
                         #新增LIFF頁面到LINEBOT中，取得liff id
                         liff_id = liff_api.add(view_type="full", view_url=event.message.text)
                         print(liff_id)
-                        line_bot_api.reply_message(event.reply_token,
-                        TextSendMessage(text='https://liff.line.me/'+liff_id))
+                        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='https://liff.line.me/'+liff_id))
                     except:
                         print(err.message)
-                line_bot_api.reply_message(  # 回復傳入的訊息文字
-                    event.reply_token,
-                    TextSendMessage(text=event.message.text)
-                )
+                elif(event.message.text =="aa"):
+                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='塞你老師'))
+                else:
+                    line_bot_api.reply_message(  # 回復傳入的訊息文字
+                        event.reply_token,
+                        TextSendMessage(text=event.message.text)
+                    )
         return HttpResponse()
     
     else:
