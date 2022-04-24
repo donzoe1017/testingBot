@@ -1,3 +1,4 @@
+from cProfile import label
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
@@ -11,6 +12,7 @@ from liffpy import (
     LineFrontendFramework as LIFF,
     ErrorResponse
 )
+from linebot.models import *
 
 liff_api = LIFF(settings.LINE_CHANNEL_ACCESS_TOKEN)
 
@@ -59,7 +61,7 @@ def callback(request):
 
 @csrf_exempt
 def callback(request):
- 
+
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
@@ -83,6 +85,110 @@ def callback(request):
                         print(err.message)
                 elif(event.message.text =="aa"):
                     line_bot_api.reply_message(event.reply_token,TextSendMessage(text='塞你老師'))
+                elif(event.message.text =="開啟傳送門"):
+                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='sorry,目前還沒有連結給你製作'))
+                elif(event.message.text =="選單"):
+                    line_bot_api.reply_message(
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text = 'Buttons template',
+                            template = ButtonsTemplate(
+                                title = '選單',
+                                text = '請選擇行動',
+                                actions = [
+                                    MessageTemplateAction(
+                                        label='製作遊戲',
+                                        text='開啟傳送門'
+                                    ),
+                                    MessageTemplateAction(
+                                        label='教學引導',
+                                        text='教我如何操作'
+                                    ),
+                                    MessageTemplateAction(
+                                        label='成品範例',
+                                        text='成品範例'
+                                    ),
+                                    URITemplateAction(
+                                        label='我是DD',
+                                        uri = 'https://holodex.net'
+                                    )
+                                    #PostbackTemplateAction(
+                                    #    label='我是DD',
+                                    #    data='看V傳送門')
+                                ]
+                            )
+                        )
+                    )
+                elif(event.message.text =="教我如何操作"):
+                    line_bot_api.reply_message(event.reply_token,
+                        TemplateSendMessage(
+                            alt_text = "教學旋轉木馬模塊",
+                            template = CarouselTemplate(
+                                columns = [
+                                    CarouselColumn(
+                                        thumbnail_image_url = 'https://cdn.discordapp.com/attachments/783700163017441330/967678889382010900/unknown.png',
+                                        title = '登入頁面',
+                                        text = '登入帳號後即可開始製作',
+                                        actions = [
+                                            URITemplateAction(
+                                                label = '觀看全圖',
+                                                uri = 'https://cdn.discordapp.com/attachments/783700163017441330/967678889382010900/unknown.png'
+                                            )
+                                        ]
+                                    ),
+                                    CarouselColumn(
+                                        thumbnail_image_url = 'https://cdn.discordapp.com/attachments/783700163017441330/967678631428096010/unknown.png',
+                                        title = '選單頁面',
+                                        text = '透過左右滑動選擇要製作遊戲',
+                                        actions = [
+                                            URITemplateAction(
+                                                label = '觀看全圖',
+                                                uri = 'https://cdn.discordapp.com/attachments/783700163017441330/967678631428096010/unknown.png'
+                                            )
+                                        ]
+                                    )
+                                ]
+                            )
+                        )
+                    )
+                elif(event.message.text =="成品範例"):
+                    line_bot_api.reply_message(event.reply_token,
+                        TemplateSendMessage(
+                            alt_text = '成品旋轉木馬',
+                            template = ImageCarouselTemplate(
+                                columns = [
+                                    ImageCarouselColumn(
+                                        image_url="https://cdn.discordapp.com/attachments/783700163017441330/967686181003345961/toy1.png",
+                                        action=URITemplateAction(
+                                            label="接水果",
+                                            uri = "https://cdn.discordapp.com/attachments/783700163017441330/967686181003345961/toy1.png"
+                                        )
+                                    ),
+                                    ImageCarouselColumn(
+                                        image_url="https://cdn.discordapp.com/attachments/783700163017441330/967686181473120276/gift1.png",
+                                        action=URITemplateAction(
+                                            label="戳戳樂",
+                                            uri = "https://cdn.discordapp.com/attachments/783700163017441330/967686181473120276/gift1.png"
+                                        )
+                                    ),
+                                    ImageCarouselColumn(
+                                        image_url="https://cdn.discordapp.com/attachments/783700163017441330/967686181720571994/mom1.png",
+                                        action=URITemplateAction(
+                                            label="做菜模擬",
+                                            uri = "https://cdn.discordapp.com/attachments/783700163017441330/967686181720571994/mom1.png"
+                                        )
+                                    ),
+                                    ImageCarouselColumn(
+                                        image_url="https://cdn.discordapp.com/attachments/783700163017441330/967686181938683934/newYear1.png",
+                                        action=URITemplateAction(
+                                            label="打氣球",
+                                            uri = "https://cdn.discordapp.com/attachments/783700163017441330/967686181938683934/newYear1.png"
+                                        )
+                                    )
+                                ]
+                            )
+                        )
+                    )
                 else:
                     line_bot_api.reply_message(  # 回復傳入的訊息文字
                         event.reply_token,
