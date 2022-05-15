@@ -107,11 +107,11 @@ def callback(request):
                                     MessageTemplateAction(
                                         label='成品範例',
                                         text='成品範例'
-                                    ),
-                                    URITemplateAction(
-                                        label='我是DD',
-                                        uri = 'https://holodex.net'
                                     )
+                                    #,URITemplateAction(
+                                    #    label='我是DD',
+                                    #    uri = 'https://holodex.net'
+                                    #)
                                     #PostbackTemplateAction(
                                     #    label='我是DD',
                                     #    data='看V傳送門')
