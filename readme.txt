@@ -1,3 +1,3 @@
-Some basic settings
+#Install
 pip install line-bot-sdk
-pip install django==3.0.3
+pip install -r requirements.txt
