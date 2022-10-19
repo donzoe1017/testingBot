@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-gnr3a+m9zefz4pi5hwojrn*v&8hr8@bdw^u=7inlhkjl0j23jt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://game-in-line-webpage.herokuapp.com/']
+ALLOWED_HOSTS = ['game-in-line-webpage.herokuapp.com'] 
 #ALLOWED_HOSTS = ['game-in-line-webpage.herokuapp.com']
 
 #LINE_ACCESS_TOKEN
