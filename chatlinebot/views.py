@@ -61,7 +61,7 @@ def callback(request):
 
 @csrf_exempt
 def callback(request):
-
+    #print(request)
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
@@ -86,7 +86,7 @@ def callback(request):
                 elif(event.message.text =="aa"):
                     line_bot_api.reply_message(event.reply_token,TextSendMessage(text='塞你老師'))
                 elif(event.message.text =="開啟傳送門"):
-                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='sorry,目前還沒有連結給你製作'))
+                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='http://140.134.26.66:5051/'))
                 elif(event.message.text =="選單"):
                     line_bot_api.reply_message(
                         event.reply_token,
