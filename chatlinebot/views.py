@@ -83,10 +83,6 @@ def callback(request):
                         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='https://liff.line.me/'+liff_id))
                     except:
                         print(err.message)
-                elif(event.message.text =="aa"):
-                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='塞你老師'))
-                elif(event.message.text =="開啟傳送門"):
-                    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='http://140.134.26.66:5051/'))
                 elif(event.message.text =="選單"):
                     line_bot_api.reply_message(
                         event.reply_token,
@@ -96,9 +92,9 @@ def callback(request):
                                 title = '選單',
                                 text = '請選擇行動',
                                 actions = [
-                                    MessageTemplateAction(
-                                        label='製作遊戲',
-                                        text='開啟傳送門'
+                                    URITemplateAction(
+                                        label = '製作遊戲',
+                                        uri = 'http://140.134.26.66:5051/'
                                     ),
                                     MessageTemplateAction(
                                         label='教學引導',

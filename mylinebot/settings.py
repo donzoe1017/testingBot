@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-gnr3a+m9zefz4pi5hwojrn*v&8hr8@bdw^u=7inlhkjl0j23jt
 DEBUG = True
 
 
-# ALLOWED_HOSTS = ['http://140.134.26.66:5052/']
+# ALLOWED_HOSTS = ['4b5f-118-163-176-235.ngrok.io']
 ALLOWED_HOSTS = ['game-in-line-webpage.herokuapp.com']
 
 
